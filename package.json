@@ -1,0 +1,39 @@
+{
+  "name": "barco-control",
+  "version": "1.0.0",
+  "description": "Control and monitor Barco Digital Cinema projector",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emerytan/barco-dci.git"
+  },
+  "keywords": [
+    "barco",
+    "tcp"
+  ],
+  "author": "Emery Anderson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emerytan/barco-dci/issues"
+  },
+  "homepage": "https://github.com/emerytan/barco-dci#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "rollup": "^1.25.1",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-watch": "^4.3.1"
+  },
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0",
+    "socket.io-client": "^2.3.0"
+  }
+}

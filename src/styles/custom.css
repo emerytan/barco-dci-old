@@ -1,0 +1,86 @@
+html {
+    background-color: rgb(16, 16, 16);
+    height: 100%;
+    width: 100%
+}
+
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: rgb(56, 56, 56);
+    color: rgb(156, 156, 156);
+    height: 100%;
+    width: 100%
+}
+
+#main {
+    position: relative;
+    height: 80%;
+    border: 1px solid #808080;
+    border-radius: 10px;
+    background-color: rgb(32, 32, 32)
+}
+
+#mainContainer {
+    position: relative;
+    height: 100%;
+}
+
+#sideCont {
+    border: 1px solid #808080;
+    border-radius: 10px;
+}
+
+#routerContainer {
+    border: 1px solid #808080;
+    border-radius: 10px
+}
+
+.table-scroll tbody {
+    position: absolute;
+    overflow-y: scroll;
+    height: 440px;
+    border: 1px solid #808080;
+    border-radius: 6px
+}
+
+.table-scroll tr {
+    width: 100%;
+    table-layout: fixed;
+    display: inline-table;
+}
+
+.table-scroll thead>tr>th {
+    border: none;
+}
+
+header,
+footer {
+    height: 8%;
+}
+
+p {
+    margin-bottom: 0
+}
+
+h1 {
+    padding: 5px 0
+} 
+
+#footerContainer {
+    position: relative;
+    height: 100%;
+    width: auto;
+    padding: 15px 0
+}
+
+#footerLeft {
+    text-align: left;
+}
+
+#footerMiddle {
+    text-align: center;
+}
+
+#footerRight {
+    text-align: right
+}
