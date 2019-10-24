@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../src/styles/custom.css">
-    <title>Video Router</title>
+    <title>CO3 Barco Control</title>
 </head>
 
 <body class="container-fluid">
@@ -15,27 +15,51 @@
     </header>
     <div id="main" class="container-fluid">
         <div id="mainContainer" class="row">
-            <div id="sideCont" class="col-2">
-                
+            <div id="sideCont" class="col-3">
+
             </div>
-            <div id="routerContainer" class="col-10">
-                <table id="macroTable" class="table table-scroll">
-                    <thead>
-                        <tr>
-                            <th id="thead1">Sources</th>
-                            <th id="thead2">Destinations</th>
-                        </tr>
-                    </thead>
-                    <tbody id="routerBody">
-                    </tbody>
-                </table>
+            <div id="mainContainer" class="col-9">
+                <div id="lensControls" class="col-12">
+                    <h4>Lens Adjustment</h4>
+                    <div id="focus" class="col-6">
+                        <legend>Focus</legend>
+                        <div id="focusButtons">
+                            <input type="button" class="btn btn-dark btn-lg" value="Focus Out" id="focusOut"
+                                data-action="focus" data-command="1" />
+                            <input type="button" class="btn btn-dark btn-lg" value="Focus In" id="focusIn"
+                                data-action="focus" data-command="0" />
+                        </div>
+                    </div>
+                    <div id="zoom" class="col-6">
+                        <legend>Zoom</legend>
+                        <div id="zoomButtons">
+                            <input type="button" class="btn btn-dark btn-lg" value="Zoom Out" id="zoomOut" data-action="zoom"
+                                data-command="1" />
+                            <input type="button" class="btn btn-dark btn-lg" value="Zoom In" id="zoomIn" data-action="zoom"
+                                data-command="0" />
+                        </div>
+                    </div>
+                    <div id="shift" class="col-12">
+                        <legend>Shift</legend>
+                        <div id="shiftButtons">
+                            <input type="button" class="btn btn-dark btn-lg" value="Shift Left" id="shiftLeft"
+                                data-action="shift" data-command="0" />
+                            <input type="button" class="btn btn-dark btn-lg" value="Shift Right" id="shiftRight"
+                                data-action="shift" data-command="1" />
+                            <input type="button" class="btn btn-dark btn-lg" value="Shift Up" id="shiftUp" data-action="shift"
+                                data-command="2" />
+                            <input type="button" class="btn btn-dark btn-lg" value="Shift Down" id="shiftDown"
+                                data-action="shift" data-command="3" />
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     <footer>
         <div id="footerContainer" class="row">
             <div id="footerLeft" class="col">
-                <p id="ioState"></p>
+                <p id="ioState">fookok</p>
             </div>
             <div id="footerMiddle" class="col">
                 <h6 id="routerState"></h6>

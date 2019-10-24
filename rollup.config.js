@@ -13,14 +13,8 @@ export default {
 			exclude: 'node_modules/**'
 		}),
 		resolve({
-			jsnext: true,
-			main: true,
 			browser: true
 		}),
-		commonjs({
-			namedExports: {
-				'node_modules/bootstrap/dist/js/bootstrap.min.js': ['bootstrap']
-			}
-		})
+		commonjs()
 	]
 }
