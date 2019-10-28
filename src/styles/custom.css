@@ -6,7 +6,7 @@ html {
 
 
 body {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
     background-color: rgb(56, 56, 56);
     color: rgb(156, 156, 156);
     height: 100%;
@@ -14,22 +14,67 @@ body {
 }
 
 
-legend {
-    color: blue;
+h1 {
+    font-size: .9fr;
+    margin: 0 auto
 }
-
 
 h4 {
-    color: blue
+    color: blue;
+    margin: 10px 0 auto;
 }
+
+h5 {
+    margin: 10px auto;
+    color: cadetblue
+}
+
+label {
+    margin-bottom: 5px;
+}
+
 
 
 #main {
     position: relative;
-    height: 80%;
+    height: 90%;
     border: 1px solid #808080;
     border-radius: 10px;
-    background-color: rgb(32, 32, 32)
+    background-color: rgb(32, 32, 32);
+    margin: 0 auto
+}
+
+
+#sideCont {
+    position: relative;
+}
+
+
+#ipContainer {
+    margin: 30px auto
+}
+
+
+#ipaddr,
+#macroList {
+    margin-bottom: 15px;
+    background-color: rgb(16, 16, 16);
+    color: rgb(156, 156, 156)
+}
+
+#connect {
+    margin-bottom: 27px
+}
+
+
+
+#testButtons {
+    text-align: center;
+    position: absolute;
+    height: 30%;
+    bottom: 0;
+    align-content: center;
+    margin: 0 auto
 }
 
 
@@ -39,38 +84,46 @@ h4 {
 }
 
 
-#sideCont {
+#lensControls,
+#shiftControls,
+#powerControls,
+#ipCont {
+    margin: 30px auto;
+    text-align: center;
     border: 1px solid #808080;
     border-radius: 10px;
 }
 
 
-#focus, #zoom, #shift {
-    margin: 20px 0;
+#zoomButtons,
+#focusButtons,
+#lampButtons,
+#dowserButtons {
+    margin: 10px auto
 }
 
 
-header,
-footer {
-    height: 8%;
+#shiftUpContainer,
+#shiftLeftRightContainer,
+#shiftDownContainer {
+    margin: 20px auto
 }
 
-
-p {
-    margin-bottom: 0
+#shiftLeft {
+    margin-right: 40px
 }
 
+#shiftRight {
+    margin-left: 40px
+}
 
-h1 {
-    padding: 5px 0
-} 
 
 
 #footerContainer {
     position: relative;
     height: 100%;
     width: auto;
-    padding: 15px 0
+    margin: auto
 }
 
 
@@ -79,11 +132,38 @@ h1 {
 }
 
 
-#footerMiddle {
-    text-align: center;
-}
-
 
 #footerRight {
     text-align: right
+}
+
+.lens {
+    border: 1px solid #808080;
+}
+
+.test {
+    border: 1px solid #808080;
+    margin: 10px auto
+}
+
+.text-left {
+    text-align: left
+}
+
+/*bootstrap edits*/
+
+.btn {
+    width: 140px;
+    margin: auto;
+    font-size: .95em
+}
+
+.btn:hover {
+    border: 1px solid cyan
+}
+
+.custom-select {
+    background-color: rgb(32, 32, 32);
+    color: rgb(156, 156, 156);
+    font-size: .9rem
 }
