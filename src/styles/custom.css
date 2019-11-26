@@ -55,7 +55,7 @@ label {
 }
 
 
-#ipaddr,
+#ipList,
 #macroList {
     margin-bottom: 15px;
     background-color: rgb(16, 16, 16);
@@ -160,6 +160,10 @@ label {
 
 .btn:hover {
     border: 1px solid cyan
+}
+
+.test:hover {
+    border: 1px solid green
 }
 
 .custom-select {

@@ -4,6 +4,10 @@ const server = require('http').Server(app)
 const io = require('socket.io')(server)
 var connections = []
 var deviceState = {}
+const projectors = [
+	'10.208.79.50',
+	'192.168.66.10'
+]
 
 
 
@@ -22,6 +26,8 @@ server.listen(3000, () => {
 io.on('connection', (socket) => {
 	var macros = require('./test').macros
 	connections.push(socket)
+
+	socket.emit('projectors', projectors)
 	
 	console.log(`server: number of client connections = ${connections.length}`)
 
@@ -31,6 +37,16 @@ io.on('connection', (socket) => {
 		io.sockets.emit('power', 1)
 		io.sockets.emit('dowser', 1)
 		io.sockets.emit('last macro', deviceState.lastMac)
+	})
+
+	socket.on('projector connect', (msg) => {
+		console.log("projector connection request")
+		console.log(msg)
+	})
+
+	socket.on('change macro', (msg) => {
+		console.log(`macro change request`)
+		console.log(msg)
 	})
 
 	socket.on('lens command', (data) => {

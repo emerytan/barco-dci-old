@@ -6,15 +6,21 @@ var ioState = document.getElementById('ioState')
 var headerText = document.getElementById('headerText')
 var lensButtons = document.getElementsByTagName('input')
 var macroList = document.getElementById('macroList')
+var ipList = document.getElementById('ipList')
 var lampPower = document.getElementById('lampPower')
 var dowser = document.getElementById('dowser')
 
+
+
 document.addEventListener('DOMContentLoaded', function () {
 
+	ipList.options.length = 0
 	appMessages.innerText = 'page fully loaded'
 	appMessages.style.color = 'green'
 	headerText.innerText = "CO3 Barco Web Control"
 	headerText.style.color = 'green'
+
+	
 	
 	document.getElementById('test1').addEventListener('click', () => {
 		appMessages.innerText = 'test1'
@@ -35,7 +41,6 @@ document.addEventListener('DOMContentLoaded', function () {
 	})
 
 	document.addEventListener('click', function (event) {
-		console.log(event.target)
 		if (event.target.matches('.lens')) {
 			let CMD = event.target.dataset
 			appMessages.innerText = `action: ${CMD.action}  <--->   command: ${CMD.command}`
@@ -43,18 +48,34 @@ document.addEventListener('DOMContentLoaded', function () {
 				action: CMD.action,
 				command: CMD.command
 			})
+		} else if (event.target.matches('.test')) {
+			if (event.target.id === "connect") {
+				console.log("send connect socket")
+				socket.emit('projector connect', {
+					ip: ipList.options[ipList.selectedIndex].text
+				})
+			}
+			if (event.target.id === "selectMacro") {
+				console.log("send macro chnage request")
+				socket.emit('change macro', {
+					index: macroList.options[macroList.selectedIndex].value,
+					macroName: macroList.options[macroList.selectedIndex].text
+				})
+				
+			}
 		}
 	})
 	
+
 	// sockets
 	socket.on('connect', () => {
 		ioState.innerText = 'Web server online'
 		ioState.style.color = 'green'
-		console.log('web socket connected')
 		socket.emit('page loaded', {
 			message: 'hello world'
 		})
 	})
+
 
 	socket.on('power', (msg) => {
 		ioState.innerText = msg
@@ -94,6 +115,11 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	})
 
+	socket.on('projectors', (arr) => {
+		console.log(arr)
+		addProjectors(arr)		
+	})
+
 	socket.on('macros', (data) => {
 		addMacros(data)
 	})
@@ -123,11 +149,19 @@ function activateButtons(elements, action) {
 	var t
 	var i = 0
 	while (t = elements[i++]) {
-		console.log(t);
 		t.disabled = action
 	}
 }
 
+function addProjectors(arr) {
+	let opt
+	for (let index = 0; index < arr.length; index++) {
+		opt = document.createElement('option')
+		opt.textContent = arr[index]
+		opt.value = index
+		ipList.appendChild(opt)
+	}
+}
 
 function addMacros(macros) {
 	var opt
@@ -136,7 +170,6 @@ function addMacros(macros) {
 			opt = document.createElement('option')
 			opt.textContent = macros[key]
 			opt.value = key
-			console.log(opt)
 			macroList.appendChild(opt)
 		}
 	}
